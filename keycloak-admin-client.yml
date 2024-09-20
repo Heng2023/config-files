@@ -25,5 +25,5 @@ springdoc:
     tags-sorter: alpha
     oauthFlow: client_credentials
 
-sever:
+server:
   port: 8082
