@@ -16,9 +16,6 @@ keycloak:
     client-id: mini-project
     provider: secret
 
-server:
-  port: 8082
-
 springdoc:
   swagger-ui:
     oauth:
@@ -27,3 +24,5 @@ springdoc:
       realm: mini-project
     tags-sorter: alpha
 
+sever:
+  port: 8082
