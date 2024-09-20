@@ -21,6 +21,18 @@ spring:
         locator:
           enabled: true  # Enable auto-discovery of routes
           lower-case-service-id: true  # Use lower case service IDs for routes
+      route:
+        - id: keycloak-admin-client
+          uri: lb://keycloak-admin-client
+          predicates:
+            - Path=/**
+
+        - id: keycloak-admin-client-docs
+          uri: lb://keycloak-admin-client
+          predicates:
+            - Path=/v3/api-docs/keycloak-admin-client
+          filters:
+            - RewritePath=/v3/api-docs/keycloak-admin-client,/v3/api-docs
 
 eureka:
   client:
