@@ -30,9 +30,9 @@ spring:
         - id: keycloak-admin-client-docs
           uri: lb://keycloak-admin-client
           predicates:
-            - Path=/v3/api-docs/keycloak-admin-client
+            - Path=/v3/api-docs/**
           filters:
-            - RewritePath=/v3/api-docs/keycloak-admin-client,/v3/api-docs
+            - RewritePath=/v3/api-docs/**,/v3/api-docs
 
 eureka:
   client:
