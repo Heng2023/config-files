@@ -23,6 +23,7 @@ springdoc:
       client-secret: PXfp7xVKtuDkyNSfziqoZPsfeuStjr9x
       realm: mini-project
     tags-sorter: alpha
+    oauthFlow: client_credentials
 
 sever:
   port: 8082
