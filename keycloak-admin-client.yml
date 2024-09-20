@@ -6,7 +6,7 @@ spring:
           issuer-uri: http://localhost:8080/realms/project
           jwk-set-uri: http://localhost:8080/realms/project/protocol/openid-connect/certs
   application:
-    name: keycloak-client
+    name: keycloak-admin-client
 
 server:
   port: 8082
