@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui/index.html
+
+spring:
+  application:
+    name: api-gateway
+  main:
+    web-application-type: reactive
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true  # Enable auto-discovery of routes
+          lower-case-service-id: true  # Use lower case service IDs for routes
