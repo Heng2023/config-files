@@ -3,28 +3,33 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/realms/mini-project # Replace with your Keycloak realm
-          jwk-set-uri: http://localhost:8080/realms/mini-project/protocol/openid-connect/certs
-  main:
-    allow-bean-definition-overriding: true
+          issuer-uri: http://localhost:8080/realms/project
+          jwk-set-uri: http://localhost:8080/realms/project/protocol/openid-connect/certs
+  application:
+    name: keycloak-client
+
+server:
+  port: 8082
 
 keycloak:
-  realm: mini-project
-  resource: mini-project
+  realm: project
+  resource: keycloak
   auth-server-url: http://localhost:8080/
   credentials:
-    secret: PXfp7xVKtuDkyNSfziqoZPsfeuStjr9x
-    client-id: mini-project
+    username: admin
+    password: 123
+    client-id: keycloak
+    secret: 9zDTopbhwUBDVK8jXhENjSiZC0ptOZUS
     provider: secret
 
 springdoc:
   swagger-ui:
     oauth:
-      client-id: mini-project
-      client-secret: PXfp7xVKtuDkyNSfziqoZPsfeuStjr9x
-      realm: mini-project
+      client-id: keycloak
+      client-secret: 9zDTopbhwUBDVK8jXhENjSiZC0ptOZUS
+      realm: project
     tags-sorter: alpha
-    oauthFlow: client_credentials
 
-server:
-  port: 8082
+logging:
+  level:
+    org.springframework.web: debug
