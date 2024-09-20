@@ -1,6 +1,11 @@
 server:
   port: 8081
 
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
 springdoc:
   swagger-ui:
     path: /swagger-ui/index.html
@@ -16,3 +21,10 @@ spring:
         locator:
           enabled: true  # Enable auto-discovery of routes
           lower-case-service-id: true  # Use lower case service IDs for routes
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
