@@ -1,0 +1,29 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/mini-project # Replace with your Keycloak realm
+  main:
+    allow-bean-definition-overriding: true
+
+keycloak:
+  realm: mini-project
+  resource: mini-project
+  auth-server-url: http://localhost:8080/
+  credentials:
+    secret: PXfp7xVKtuDkyNSfziqoZPsfeuStjr9x
+    client-id: mini-project
+    provider: secret
+
+server:
+  port: 8082
+
+springdoc:
+  swagger-ui:
+    oauth:
+      client-id: mini-project
+      client-secret: PXfp7xVKtuDkyNSfziqoZPsfeuStjr9x
+      realm: mini-project
+    tags-sorter: alpha
+
