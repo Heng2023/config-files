@@ -13,19 +13,22 @@ spring:
           enabled: true  # Automatically discover routes from Eureka
           lower-case-service-id: true  # Use lowercase service IDs for routes
       routes:
+        - id: task-service
+          uri: lb://task-service
+          predicates:
+            - Path=/api/v1/tasks/**
+
         # Route for keycloak-admin-client API
         - id: keycloak-admin-client
           uri: lb://keycloak-admin-client  # Load-balancing URI using Eureka service discovery
           predicates:
-            - Path=/v3/api-docs/**, /api/v1/**  # Route matching this path will be sent to the keycloak-admin-client service
+            - Path=/v3/api-docs/keycloak-admin-client, /api/v1/**  # Route matching this path will be sent to the keycloak-admin-client service
 
         # Route for task-service API
-        - id: task-service
+        - id: task-service-doc
           uri: lb://task-service  # Load-balancing URI using Eureka service discovery
           predicates:
-            - Path=/v3/api-docs/task-service # Route matching this path will be sent to the keycloak-admin-client service
-          filters:
-            - AddRequestHeader=Authorization, Bearer <JWT-TOKEN>
+            - Path=/v3/api-docs/task-service-doc
 
   security:
     oauth2:
