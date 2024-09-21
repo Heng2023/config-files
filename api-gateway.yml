@@ -16,7 +16,7 @@ spring:
         - id: task-service
           uri: lb://task-service
           predicates:
-            - Path=/api/v1/tasks/**
+            - Path=/api/v1/task/**
 
         # Route for keycloak-admin-client API
         - id: keycloak-admin-client
