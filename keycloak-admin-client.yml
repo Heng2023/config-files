@@ -24,6 +24,7 @@ keycloak:
 
 springdoc:
   swagger-ui:
+    path: /keycloak-admin-client/swagger-ui.html
     oauth:
       client-id: keycloak
       client-secret: 9zDTopbhwUBDVK8jXhENjSiZC0ptOZUS
