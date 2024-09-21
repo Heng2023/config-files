@@ -24,13 +24,12 @@ keycloak:
 
 springdoc:
   swagger-ui:
-    path: /keycloak-admin-client/swagger-ui.html
     oauth:
       client-id: keycloak
       client-secret: 9zDTopbhwUBDVK8jXhENjSiZC0ptOZUS
       realm: project
   api-docs:
-    path: /keycloak-admin-client/v3/api-docs
+    path: /v3/api-docs/keycloak-admin-client
 
 keycloak-admin:
   username: admin

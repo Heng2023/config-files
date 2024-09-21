@@ -17,17 +17,8 @@ spring:
         - id: keycloak-admin-client
           uri: lb://keycloak-admin-client  # Load-balancing URI using Eureka service discovery
           predicates:
-            - Path=/keycloak-admin-client/**  # Route matching this path will be sent to the keycloak-admin-client service
-          filters:
-            - RewritePath=/keycloak-admin-client/(?<segment>.*), /${segment}  # Rewrite the path for the downstream service
+            - Path=/v3/api-docs/**, /api/v1/**  # Route matching this path will be sent to the keycloak-admin-client service
 
-        # Route for Swagger UI (OpenAPI documentation) for keycloak-admin-client
-        - id: keycloak-admin-client-docs
-          uri: lb://keycloak-admin-client
-          predicates:
-            - Path=/swagger-ui/keycloak-admin-client/**  # Swagger UI path exposed through the gateway
-          filters:
-            - RewritePath=/swagger-ui/keycloak-admin-client(?<segment>/.*), /swagger-ui${segment}  # Rewrite to actual Swagger path
   security:
     oauth2:
       resourceserver:
@@ -48,6 +39,8 @@ management:
       probability: 0.5  # 50% trace sampling for distributed tracing
 
 springdoc:
+  api-docs:
+    path: /v3/api-docs
   swagger-ui:
     path: /swagger-ui/index.html  # Swagger UI path at the gateway level
 
