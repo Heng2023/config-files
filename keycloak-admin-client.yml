@@ -28,9 +28,8 @@ springdoc:
       client-id: keycloak
       client-secret: 9zDTopbhwUBDVK8jXhENjSiZC0ptOZUS
       realm: project
-    tags-sorter: alpha
   api-docs:
-    path: /keycloak-client/v3/api-docs
+    path: /keycloak-admin-client/v3/api-docs
 
 keycloak-admin:
   username: admin
