@@ -24,6 +24,8 @@ spring:
           uri: lb://task-service  # Load-balancing URI using Eureka service discovery
           predicates:
             - Path=/v3/api-docs/task-service # Route matching this path will be sent to the keycloak-admin-client service
+          filters:
+            - AddRequestHeader=Authorization, Bearer <JWT-TOKEN>
 
   security:
     oauth2:
