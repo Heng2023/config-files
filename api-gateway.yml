@@ -19,6 +19,12 @@ spring:
           predicates:
             - Path=/v3/api-docs/**, /api/v1/**  # Route matching this path will be sent to the keycloak-admin-client service
 
+        # Route for task-service API
+        - id: task-service
+          uri: lb://task-service  # Load-balancing URI using Eureka service discovery
+          predicates:
+            - Path=/v3/api-docs/**, /api/v1/**  # Route matching this path will be sent to the keycloak-admin-client service
+
   security:
     oauth2:
       resourceserver:
