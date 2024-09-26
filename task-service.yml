@@ -7,6 +7,18 @@ spring:
           jwk-set-uri: http://localhost:8080/realms/project/protocol/openid-connect/certs
   application:
     name: task-service
+  datasource:
+    username: postgres
+    password: qwas1234
+    url: jdbc:postgresql://localhost:5436/task
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
 server:
   port: 8083
@@ -43,6 +55,17 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
+
+resilience4j.circuitbreaker:
+  instances:
+    keycloak-admin-client:   # Feign client name
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      failureRateThreshold: 50
+      waitDurationInOpenState: 3s  # time in ms
+      permittedNumberOfCallsInHalfOpenState: 3
+      minimumNumberOfCalls: 5
+      automaticTransitionFromOpenToHalfOpenEnabled: true
 
 logging:
   level:
