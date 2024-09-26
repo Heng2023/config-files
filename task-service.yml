@@ -67,6 +67,10 @@ resilience4j.circuitbreaker:
       minimumNumberOfCalls: 5
       automaticTransitionFromOpenToHalfOpenEnabled: true
 
+keycloak-admin:
+  username: admin
+  password: admin
+
 logging:
   level:
     org.springframework.web: debug
