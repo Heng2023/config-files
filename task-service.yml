@@ -71,6 +71,14 @@ keycloak-admin:
   username: admin
   password: admin
 
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        retryer: feign.Retryer.Default
+
 logging:
   level:
     org.springframework.web: debug
