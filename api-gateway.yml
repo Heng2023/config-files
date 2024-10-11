@@ -30,12 +30,12 @@ spring:
           predicates:
             - Path=/v3/api-docs/task-service-doc
 
-#  security:
-#    oauth2:
-#      resourceserver:
-#        jwt:
-#          issuer-uri: http://localhost:8080/realms/project  # Keycloak issuer URI for validating tokens
-#          jwk-set-uri: http://localhost:8080/realms/project/protocol/openid-connect/certs  # Keycloak JWK set URI to fetch public keys for token validation
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/project  # Keycloak issuer URI for validating tokens
+          jwk-set-uri: http://localhost:8080/realms/project/protocol/openid-connect/certs  # Keycloak JWK set URI to fetch public keys for token validation
 
 eureka:
   client:
